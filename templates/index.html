@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StartSmart UAE</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7f7f5;color:#1a1a1a}
+header{background:#1a1a2e;color:white;padding:2rem;text-align:center}
+header h1{font-size:2rem;font-weight:700}
+header p{color:#aaa;margin-top:.25rem}
+main{max-width:720px;margin:0 auto;padding:2rem 1rem}
+.card{background:white;border-radius:12px;border:.5px solid #e0e0e0;padding:1.5rem;margin-bottom:1.5rem}
+label{display:block;font-size:13px;font-weight:500;color:#555;margin-bottom:.4rem}
+textarea,select{width:100%;border:1px solid #ddd;border-radius:8px;padding:.6rem .8rem;font-size:14px;font-family:inherit;outline:none}
+textarea:focus,select:focus{border-color:#378ADD}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+#budget-label{font-size:13px;font-weight:500;color:#555;margin-bottom:.4rem}
+input[type=range]{width:100%;accent-color:#378ADD}
+button{width:100%;background:#1a1a2e;color:white;border:none;border-radius:8px;padding:.8rem;font-size:15px;font-weight:500;cursor:pointer;margin-top:1rem}
+button:hover{background:#378ADD}
+button:disabled{background:#aaa;cursor:not-allowed}
+.error{color:#c0392b;font-size:13px;margin-top:.5rem}
+.spinner{width:36px;height:36px;border:3px solid #eee;border-top-color:#378ADD;border-radius:50%;animation:spin .8s linear infinite;margin:2rem auto;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.step-card{display:flex;gap:1rem;background:white;border-radius:12px;border:.5px solid #e0e0e0;padding:1.25rem;margin-bottom:.75rem}
+.step-num{width:32px;height:32px;background:#1a1a2e;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0}
+.step-body h3{font-size:15px;font-weight:600;margin-bottom:.3rem}
+.step-body p{font-size:13px;color:#555;margin-bottom:.6rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{font-size:11px;background:#f5f5f3;padding:2px 8px;border-radius:20px;color:#666}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.chart-box{background:white;border-radius:12px;border:.5px solid #e0e0e0;padding:1.25rem}
+.chart-box h3{font-size:13px;font-weight:500;color:#555;margin-bottom:1rem}
+.tip{background:#e6f1fb;border-radius:8px;padding:1rem 1.25rem;font-size:13px;color:#0C447C;line-height:1.6}
+.meta{display:flex;gap:1.5rem;font-size:13px;font-weight:500;color:#378ADD;margin-top:.75rem}
+#results{display:none}
+@media(max-width:600px){.row,.charts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>StartSmart UAE</h1>
+  <p>Turn your idea into your first real step</p>
+</header>
+<main>
+  <div class="card">
+    <label>What is your business idea?</label>
+    <textarea id="idea" rows="3" placeholder="e.g. I want to sell camel milk products to tourists in Al Qua'a"></textarea>
+    <div class="row">
+      <div>
+        <label>Category</label>
+        <select id="category">
+          <option>Food & Catering</option>
+          <option>Agriculture & Farming</option>
+          <option>Retail & Trading</option>
+          <option>Tourism & Hospitality</option>
+          <option>Services & Maintenance</option>
+          <option>Technology & Digital</option>
+          <option>Handicrafts & Arts</option>
+          <option>Health & Wellness</option>
+          <option>Education & Tutoring</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <div id="budget-label">Budget — 10,000 AED</div>
+        <input type="range" id="budget" min="1000" max="100000" step="1000" value="10000" oninput="document.getElementById('budget-label').textContent='Budget — '+Number(this.value).toLocaleString()+' AED'">
+      </div>
+    </div>
+    <button id="btn" onclick="generate()">Generate my action plan</button>
+    <p class="error" id="error"></p>
+  </div>
+  <div class="spinner" id="spinner"></div>
+  <div id="results">
+    <div class="card">
+      <h2 id="biz-name"></h2>
+      <p id="biz-summary" style="color:#555;font-size:14px;margin-top:.5rem"></p>
+      <div class="meta"><span id="total-cost"></span><span id="total-days"></span></div>
+    </div>
+    <div id="steps-list"></div>
+    <div class="charts">
+      <div class="chart-box"><h3>Timeline per step (days)</h3><canvas id="timeline-chart"></canvas></div>
+      <div class="chart-box"><h3>Cost breakdown (AED)</h3><canvas id="cost-chart"></canvas></div>
+    </div>
+    <div class="tip" id="tip" style="margin-top:1rem"></div>
+  </div>
+</main>
+<script>
+let timelineChart, costChart;
+async function generate() {
+  const idea = document.getElementById("idea").value.trim();
+  if (!idea) return;
+  document.getElementById("btn").disabled = true;
+  document.getElementById("btn").textContent = "Building your plan...";
+  document.getElementById("error").textContent = "";
+  document.getElementById("results").style.display = "none";
+  document.getElementById("spinner").style.display = "block";
+  try {
+    const resp = await fetch("/generate", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        idea, 
+        category: document.getElementById("category").value,
+        budget: document.getElementById("budget").value
+      })
+    });
+    const plan = await resp.json();
+    showPlan(plan);
+  } catch(e) {
+    document.getElementById("error").textContent = "Something went wrong. Please try again.";
+  } finally {
+    document.getElementById("btn").disabled = false;
+    document.getElementById("btn").textContent = "Generate my action plan";
+    document.getElementById("spinner").style.display = "none";
+  }
+}
+function showPlan(plan) {
+  document.getElementById("biz-name").textContent = plan.business_name_suggestion;
+  document.getElementById("biz-summary").textContent = plan.summary;
+  document.getElementById("total-cost").textContent = "Total cost: " + plan.total_estimated_cost_aed.toLocaleString() + " AED";
+  document.getElementById("total-days").textContent = "Timeline: " + plan.total_timeline_days + " days";
+  document.getElementById("tip").innerHTML = "<strong>First customer tip:</strong> " + plan.first_customer_tip;
+  const list = document.getElementById("steps-list");
+  list.innerHTML = "";
+  plan.steps.forEach(s => {
+    list.innerHTML += `<div class="step-card"><div class="step-num">${s.step_number}</div><div class="step-body"><h3>${s.action}</h3><p>${s.description}</p><div class="tags"><span class="tag">📍 ${s.location}</span><span class="tag">👤 ${s.who_to_contact}</span><span class="tag">💰 ${s.estimated_cost_aed.toLocaleString()} AED</span><span class="tag">📅 ${s.timeline_days} days</span></div></div></div>`;
+  });
+  if (timelineChart) timelineChart.destroy();
+  if (costChart) costChart.destroy();
+  timelineChart = new Chart(document.getElementById("timeline-chart"), {
+    type: "bar",
+    data: {labels: plan.steps.map(s=>"Step "+s.step_number), datasets: [{data: plan.steps.map(s=>s.timeline_days), backgroundColor: "#378ADD", borderRadius: 6}]},
+    options: {responsive: true, plugins: {legend: {display: false}}}
+  });
+  costChart = new Chart(document.getElementById("cost-chart"), {
+    type: "doughnut",
+    data: {labels: plan.steps.map(s=>s.action), datasets: [{data: plan.steps.map(s=>s.estimated_cost_aed), backgroundColor: ["#534AB7","#1D9E75","#D85A30","#378ADD","#BA7517"], borderWidth: 0}]},
+    options: {responsive: true, plugins: {legend: {position: "bottom"}}}
+  });
+  document.getElementById("results").style.display = "block";
+}
+</script>
+</body>
+</html>
