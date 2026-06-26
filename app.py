@@ -3,7 +3,8 @@
 import requests, json
 
 app = Flask(__name__)
-API_KEY = open("secret.txt").read().strip()
+import os
+API_KEY = os.environ.get("GROQ_API_KEY", "")
 
 PROMPT = """You are a UAE business advisor for Al Ain and Al Qua'a. Return ONLY valid JSON:
 {"business_name_suggestion":"string","summary":"string","steps":[{"step_number":1,"action":"string","description":"string","estimated_cost_aed":500,"timeline_days":7,"who_to_contact":"string","location":"string"}],"total_estimated_cost_aed":5000,"total_timeline_days":60,"first_customer_tip":"string"}
@@ -36,7 +37,9 @@ def generate():
     return jsonify(json.loads(text))
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 =======
 
 >>>>>>> d081b13b5bad34ddff0387ae94324b5a5c2e1773
