@@ -121,7 +121,7 @@ See `DEMO_SCRIPT.md` for the 2-minute script. _[paste your YouTube link]_
 
 Built for the Tatweer Hackathon 2026, in collaboration with Abu Dhabi University.
 
-- _[Your name]_
-- _[Teammate name]_
+- Amin Magdi
+- Yazan Basel
 
 _StartSmart UAE — because the hardest part of starting is knowing where to start._
