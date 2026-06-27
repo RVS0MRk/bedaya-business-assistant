@@ -1,136 +1,103 @@
-# StartSmart UAE — Your First Entrepreneurial Step, in 10 Seconds
+# StartSmart UAE — Test Your Idea Before You Spend
 
 > **Tatweer Hackathon 2026 · Challenge 1: Taking the first entrepreneurial step**
-> A bilingual (Arabic/English) AI advisor that turns a raw business idea into a concrete, costed, UAE-specific action plan — built for first-time founders in Al Qua'a and rural Al Ain.
+> A bilingual (Arabic/English) AI assistant that turns a business idea into a first action, validation plan, opportunity score, 10-person proof test, founder decision, and a professional PDF report — built for first-time founders in Al Qua'a and rural Al Ain.
 
-**Live demo:** _[paste your Render URL here once deployed]_
-**Demo video (2 min):** _[paste your YouTube link here]_
-
----
-
-## 1. The challenge and the specific problem
-
-In Al Qua'a and the wider Al Ain region, many people hold a viable idea or a real skill — a camel farmer who could sell milk products to tourists, a home cook who could cater, a craftsperson who could sell online. **The barrier is almost never ambition. It is the first step.**
-
-A first-time founder here typically does not know:
-- What the actual first action is
-- Which licence they need, or which government body issues it
-- How much it realistically costs in AED
-- Who to contact, and where
-
-There is no business advisor down the road. Generic online advice is written for Dubai free-zones or foreign markets, not for a rural Emirati community. So the idea stays an idea.
-
-**The specific problem we solve:** we collapse the gap between *"I have an idea"* and *"I know exactly what to do on Monday morning."*
+**Live demo:** _[paste your Render URL]_
+**Demo video (2 min):** _[paste your YouTube link]_
 
 ---
 
-## 2. Who it is for
+## Challenge selected
 
-A first-time founder in a rural UAE community who has an idea or a skill but has never started a business. Concretely:
+Challenge 1 — Taking the first entrepreneurial step.
 
-- **Young Emiratis** in Al Qua'a / Al Ain exploring self-employment
-- **Camel farmers and their families** looking to diversify income (a primary livelihood in Al Qua'a)
-- **Home-based makers** — cooks, crafters, tutors — ready to formalise
-- **People who think and read in Arabic**, who are underserved by English-only tools
+## Problem
 
-This is why the tool is fully bilingual with native right-to-left Arabic, not a translated afterthought.
+Many first-time founders in rural communities like Al Qua'a have an idea or a skill but do not know the first practical step, what to test, or how to avoid spending money too early. There is no advisor nearby, and generic online advice is written for Dubai free zones, not a camel-farming, stargazing-tourism community.
 
----
+## Target users
 
-## 3. The solution and its impact
+Al Qua'a residents, students, camel-farm families, local farmers, farm workers, small traders, and tourism-related entrepreneurs — including people who think and read in Arabic.
 
-**StartSmart UAE** takes three simple inputs — your idea, a category, and a rough budget — and generates a complete, structured 5-step action plan in under 10 seconds.
+## Solution
 
-Each plan includes, for every step:
-- A concrete action and a plain-language description
-- A realistic AED cost estimate
-- A timeline in days
-- A specific contact (e.g. Khalifa Fund, DED Al Ain, TAMM)
-- A location
+StartSmart UAE turns a business idea into a first action, a 7-day validation plan, five customer questions, a WhatsApp test message, an opportunity score, a 10-person proof-mode feedback summary, a clear founder decision, and a downloadable founder report — all in under five minutes, in English or Arabic.
 
-Plus: a total cost and timeline, a first-customer tip, two auto-generated charts (cost breakdown + timeline), an AI follow-up chat for any question about the plan, a downloadable PDF the founder can keep or print, and direct links to the four real UAE bodies they will actually need.
+## Main features
 
-### Testable impact claims
+First Step Today · Opportunity Score /25 with reasons and improvement tips · Founder Decision Engine · Proof Mode (test with 10 people, with demo-fill and CSV export) · First 7 Days plan (action, output, time, success check) · Validation questions · WhatsApp test message (copy + open) · "What not to do yet" guidance · Founder Readiness Report · Shareable founder summary · Fuller path with cost/timeline charts · Suggested UAE resources · Follow-up AI chat · Arabic option with full RTL · Professional 5-page PDF report.
 
-These are written to be falsifiable — anyone can run the tool and check them:
 
-1. From any plausible business idea, the tool returns a **structured 5-step plan in under 10 seconds.**
-2. Every plan references **real, named UAE institutions** (ADDED, Khalifa Fund, DED Al Ain, TAMM, Basher) — not generic placeholders.
-3. The tool produces a **complete plan in Arabic with correct RTL layout** when the language is switched, not a partial translation.
-4. A founder with **zero prior knowledge** can go from idea to a printed, costed action plan in **one session, under 2 minutes**, with no advisor present.
-5. The follow-up chat answers **plan-specific questions** (e.g. "what licence do I need?") grounded in the generated plan, not generic web answers.
 
-### Why the impact is real
+## Creative features (v6)
 
-The benefit is not abstract. A camel farmer in Al Qua'a who wonders whether they could sell milk products to the area's stargazing tourists can, in one sitting, get a named licence, an AED figure, a first contact, and a printable plan — in Arabic. That is the difference between an idea that dies and one that takes its first step.
+Beyond the core flow, StartSmart UAE includes judge-facing features that make the value obvious:
 
----
+- **Founder Passport** — a startup-ID-style summary card (idea, status, first action, score, decision, channel, test cost, next step) with copy and PDF export.
+- **Before You Spend** — shows money protected by testing first (planned budget − recommended first test), a clear impact visual.
+- **Customer Personas** — three local personas (who they are, what they care about, how to reach them, what to ask).
+- **Risk Radar** — five risks (demand, cost, trust, legal, execution) each with level, reason, and fix; legal stays guidance-only.
+- **Pitch Generator** — 10-second, 30-second, WhatsApp, and Instagram pitches, each copyable.
+- **Local Opportunity Map** — a clean Al Qua'a opportunity flow.
+- **Validation QR Code** — customers scan to open the WhatsApp test message.
+- **Judge Mode** — guides judges through the strongest sections with highlights.
+- **Animated Proof Mode** — demo feedback fills customer-by-customer for a strong live demo.
+- **Floating Founder Advisor** — fixed chat with a local fallback so it never shows rate-limit errors.
 
-## 4. Feasibility and deployment
+All of these appear in the PDF report where relevant, work in Arabic, and respect reduced-motion.
 
-This is built to actually run in a rural setting, not just demo once.
+## How StartSmart UAE meets the judging criteria
 
-**Cost to operate.** The tool runs on the Groq API using Llama 3.1, which is free at our usage level (14,400 requests/day on the free tier). At realistic community usage — say 200 plans a day — the cost is **effectively zero**. There is no database, no paid infrastructure.
+| Criterion | How the project meets it |
+|---|---|
+| Impact | Helps first-time founders take action and avoid wasting money |
+| Relevance | Directly solves Challenge 1, built for the Al Qua'a / Al Ain context |
+| Feasibility | Simple Flask web app, free API tier, no database, no complex setup |
+| Readiness | Working prototype: plan, score, Proof Mode, decision, PDF, follow-ups |
+| Scalability | Adapts to other UAE rural communities by changing examples and resources |
+| Evidence | Proof Mode collects interest, price, concerns, and pre-order intent; CSV export |
+| Documentation | README, TESTING.md, demo script, screenshots, run instructions |
 
-**Hosting.** A single Flask app deployable free on Render.com (or any free host). No server administration, no scaling config needed for community-scale traffic.
+## Testable claims
 
-**Maintenance.** The only component that needs occasional updating is the system prompt, as UAE regulations change. No data pipeline, no model training, no ongoing engineering.
+- A user can generate a first-step action plan in under 5 minutes.
+- The app produces 5 validation questions for every idea.
+- The app gives an opportunity score out of 25 with a reason and improvement tip per category.
+- Proof Mode summarises feedback from up to 10 customers into a live verdict.
+- The app helps founders test demand before spending the full budget.
+- The app can be adapted to other rural communities by changing examples and resources.
 
-**Connectivity-appropriate.** The interface is lightweight and mobile-first — it works on a phone over a basic connection, which matters in a dispersed rural community where not everyone has a laptop.
+## Feasibility
 
-**Realistic constraints we acknowledge.** The AI's cost and timeline figures are informed estimates, not legal quotes — the tool directs users to official bodies (linked in-app) to confirm exact fees. This is by design: we give direction and momentum, and hand off to the authoritative source for the final number.
+Runs on the free Groq API tier (Llama 3.1) — effectively zero cost at community scale. Single Flask app, deployable free on Render. No database, no auth. The only component needing occasional updating is the system prompt, as rules change. Mobile-first and works on a phone over a basic connection.
 
----
+## Scalability
 
-## 5. Scalability beyond the event
+Change the location and examples in one prompt to serve any UAE emirate or rural community. The bilingual pattern extends to other languages. The same idea-to-validation engine generalises to any first-step guidance problem.
 
-The architecture is deliberately replicable:
+## Tools used
 
-- **To other emirates:** change the location context in one prompt; the tool serves Sharjah, RAK, or any rural community immediately.
-- **To other languages:** the bilingual system already proves the pattern; adding Urdu or Hindi (widely spoken in the UAE) is a prompt-and-dictionary change, not a rewrite.
-- **To other domains:** the same idea-to-action-plan engine generalises beyond business — to navigating any multi-step bureaucratic process.
-- **No per-user cost wall:** because there's no database and the API tier is generous, growth doesn't break the cost model.
+| Layer | Technology |
+|---|---|
+| Backend | Python + Flask |
+| AI | Groq API · Llama 3.1 (free tier) |
+| Charts | Chart.js (web) + matplotlib (PDF) |
+| PDF | ReportLab (server-side, with Arabic via Amiri font + reshaping) |
+| Languages | English + Arabic (native RTL) |
+| Hosting | Render.com (free) |
 
-A clear path to growth: partner with Khalifa Fund or a local council to embed the tool as the front door for first-time founders, with plans logged (with consent) to build the very local-demand dataset that rural entrepreneurs currently lack.
-
----
-
-## 6. Evidence and validation
-
-We tested the tool across **10 distinct business ideas** spanning 6 categories relevant to Al Qua'a:
-
-| # | Idea tested | Category | Result |
-|---|---|---|---|
-| 1 | Camel milk products for tourists | Agriculture | 5-step plan, valid JSON |
-| 2 | Date farm direct sales | Agriculture | 5-step plan, valid JSON |
-| 3 | Stargazing tour guide service | Tourism | 5-step plan, valid JSON |
-| 4 | Home catering business | Food | 5-step plan, valid JSON |
-| 5 | Local delivery service | Services | 5-step plan, valid JSON |
-| 6 | Handmade crafts online store | Handicrafts | 5-step plan, valid JSON |
-| 7 | Mobile car wash | Services | 5-step plan, valid JSON |
-| 8 | Tutoring centre | Education | 5-step plan, valid JSON |
-| 9 | Honey production | Agriculture | 5-step plan, valid JSON |
-| 10 | Same idea, Arabic mode | Food | Full Arabic plan, correct RTL |
-
-**Result: 10/10 produced a complete, valid 5-step plan.** Cost estimates were cross-checked against publicly published Khalifa Fund and DED fee ranges and fell within realistic bounds.
-
-_(Add 2–3 screenshots of real outputs here — including one Arabic plan — before submitting. Screenshots are strong evidence for this criterion.)_
-
----
-
-## 7. How to run and verify it
-
-### Run locally
+## How to run
 
 ```bash
 git clone https://github.com/RVS0MRk/startsmart-uae
 cd startsmart-uae
 python -m venv .venv
-.venv\Scripts\activate        # Windows
+.venv\Scripts\activate          # Windows  (use: source .venv/bin/activate on Mac/Linux)
 pip install -r requirements.txt
 ```
 
-Add your free Groq API key (from console.groq.com) as a file named `secret.txt` in the project root, or as an environment variable `GROQ_API_KEY`. Then:
+Add your free Groq key (from console.groq.com) as a file named `secret.txt` in the project root, OR as an environment variable `GROQ_API_KEY`. Then:
 
 ```bash
 python app.py
@@ -138,26 +105,15 @@ python app.py
 
 Open `http://127.0.0.1:5000`.
 
-### Verify the claims yourself
+> Note: the first Arabic PDF download fetches the Amiri Arabic font once (needs internet); after that it works offline.
 
-1. Enter any business idea → confirm a 5-step plan appears in under 10 seconds.
-2. Click **العربية** → confirm the whole interface flips to Arabic with right-to-left layout.
-3. Generate a plan → confirm it names real UAE bodies and gives AED costs.
-4. Ask a follow-up question in the chat → confirm a plan-specific answer.
-5. Click **Download PDF** → confirm a printable plan downloads.
+## Screenshots
 
----
+_Add screenshots of: home/input, generated plan with judge summary, opportunity score, Proof Mode with demo feedback, the founder decision card, the PDF report, and one Arabic screen._
 
-## Tools and tech
+## Demo video
 
-| Layer | Technology |
-|---|---|
-| Backend | Python + Flask |
-| AI | Groq API · Llama 3.1 (free tier) |
-| Charts | Chart.js |
-| PDF | jsPDF |
-| Languages | English + Arabic (native RTL) |
-| Hosting | Render.com (free) |
+See `DEMO_SCRIPT.md` for the 2-minute script. _[paste your YouTube link]_
 
 ---
 
@@ -167,7 +123,5 @@ Built for the Tatweer Hackathon 2026, in collaboration with Abu Dhabi University
 
 - _[Your name]_
 - _[Teammate name]_
-
----
 
 _StartSmart UAE — because the hardest part of starting is knowing where to start._
